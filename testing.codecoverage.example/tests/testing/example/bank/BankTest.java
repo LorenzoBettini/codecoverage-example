@@ -43,10 +43,12 @@ public class BankTest {
 	@Test
 	public void testDepositWhenAccountIsFoundShouldIncrementBalance() {
 		// setup
-		BankAccount toBeFound = createTestAccount(INITIAL_BALANCE);
-		bankAccounts.add(toBeFound);
+		// first an account that does not match...
 		BankAccount another = createTestAccount(INITIAL_BALANCE);
 		bankAccounts.add(another);
+		// ...then the one we want to modify
+		BankAccount toBeFound = createTestAccount(INITIAL_BALANCE);
+		bankAccounts.add(toBeFound);
 		// exercise
 		bank.deposit(toBeFound.getId(), AMOUNT);
 		// verify
