@@ -28,8 +28,7 @@ public class Bank {
 
 	private BankAccount findBankAccountById(int bankAccountId) {
 		return bankAccounts.stream()
-			// Intentionally introduced bug: no filtering
-			// .filter(a -> a.getId() == bankAccountId)
+			.filter(a -> a.getId() == bankAccountId)
 			.findFirst()
 			.orElseThrow(
 				() -> new NoSuchElementException
