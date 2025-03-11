@@ -4,14 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.function.BiConsumer;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class BankAccountTest {
-
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
 
 	private static final int AMOUNT = 3;
 
@@ -54,15 +49,6 @@ public class BankAccountTest {
 			assertEquals("Negative amount: -1.0", e.getMessage());
 			assertEquals(0, bankAccount.getBalance(), 0);
 		}
-	}
-
-	@Test
-	public void testDepositWhenAmountIsNegativeShouldThrowAlternative() {
-		BankAccount bankAccount = new BankAccount();
-		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage("Negative amount: -1.0");
-		bankAccount.deposit(-1);
-		// but we can't perform further assertions...
 	}
 
 	@Test
